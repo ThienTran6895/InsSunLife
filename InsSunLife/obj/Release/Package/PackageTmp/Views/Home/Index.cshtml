@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model IEnumerable<InsSunLife.Models.Customer>
+<div class="panel panel-default header-nobg" style="margin-top:20px;">
+    <div class="panel-heading">
+        <h4>Danh sách hợp đồng</h4>
+    </div>
+    <div class="panel-body">
+        <input type="text" id="Search" />
+        <a class="btn btn-primary" id="search">Tìm kiếm</a>
+        <a class="btn btn-primary" href="/home/InsuranceInfo">Thêm</a>
+        <a class="btn btn-primary" id="upload" style="float: right;" href="/home/Upload">Upload</a>
+    </div>
+
+    <table class="table table-bordered table-with-bg" id="grid">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Bên mua bảo hiểm</th>
+                <th>Ngày tạo</th>
+                <th>Người tạo</th>
+                <th style="width:60px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.CreateDate
+                        </td>
+                        <td>Người tạo</td>
+                        <td>
+                            <a href="/home/InsuranceInfo?id=@item.CustomerID" class="btn btn-link">Xem</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#search").on("click", function () {
+                var name = {
+                    Name: $("#Search").val()
+                }                  
+                $.ajax({
+                type: "POST",
+                    dataType: "json",
+                    data: name,
+                url: '@Url.Action("GetCustomerByName", "Home")',
+            });
+            });
+        });
+
+    </script>
+</div>
+
+    

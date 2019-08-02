@@ -1,0 +1,267 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model InsSunLife.Models.Customer
+
+<div class="body">
+    <div class="dtr-title">
+        <h3 class="box-title">THÔNG TIN HỢP ĐỒNG</h3>
+    </div>
+    <h4 class="page-header">Thông tin bên mua bảo hiểm</h4>
+    <div class="row" style="margin-bottom:15px;">
+        <div class="col-md-2">
+            Bên mua bảo hiểm:
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control" value="@Model.Name"/>
+        </div>
+        <div class="col-md-1">
+            Tuổi:
+        </div>
+        <div class="col-md-1">
+            <input type="text" class="form-control"/>
+        </div>
+        <div class="col-md-1">
+            Giới tính:
+        </div>
+        <div class="col-md-2">
+            <select name="gender" class="form-control">
+                <option value="male">Nam</option>
+                <option value="female">Nữ</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            Đơn vị tính: Đồng
+        </div>
+    </div>
+    <table class="table table-bordered table-with-bg">
+        <thead>
+            <tr>
+                <th>Người được bảo hiểm</th>
+                <th>Ngày sinh</th>
+                <th>Tuổi/Giới tính</th>
+                <th>Nhóm nghề nghiệp</th>
+                <th>Sản phẩm bảo hiểm</th>
+                <th>Số tiền bảo hiểm</th>
+                <th>Thời hạn bảo hiểm (Năm)</th>
+                <th>Thời hạn đóng phí dự kiến(*) (Năm)</th>
+                <th>Phí bảo hiểm năm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" class="form-control" id="1" value="@Model.Name"/>
+                </td>
+                <td>
+                    <input type="date" class="form-control" id="2" value="@Model.Dob"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="3" value="@Model.Age"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="4" value="@Model.Job"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="5" value="@Model.ProductID"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="6" value="@Model.PayMoney"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="7" value="@Model.Duration"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="8" value="@Model.PayDuration"/>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="9" value="@Model.TaxPerYear"/>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Quý</th>
+                <th>Nửa năm</th>
+                <th>Năm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Phí bảo hiểm cơ bản(1)</td>
+                <td><input type="text" class="form-control" id="10" value="@Model.BasicIns_quy"/></td>
+                <td><input type="text" class="form-control" id="11"value="@Model.BasicIns_nuanam"/></td>
+                <td><input type="text" class="form-control" id="12"value="@Model.BasicIns_nam"/></td>
+            </tr>
+            <tr>
+                <td>Phí bảo hiểm của (các) sản phẩm bổ sung (2)</td>
+                <td><input type="text" class="form-control" id="13"value="@Model.AddItemIns_quy"/></td>
+                <td><input type="text" class="form-control" id="14"value="@Model.AddItemIns_nuanam"/></td>
+                <td><input type="text" class="form-control" id="15" value="@Model.AddItemIns_nam"/></td>
+            </tr>
+            <tr>
+                <td>Phí bảo hiểm định kì (3) = (1) + (2)</td>
+                <td><input type="text" class="form-control" /></td>
+                <td><input type="text" class="form-control"/></td>
+                <td><input type="text" class="form-control"/></td>
+            </tr>
+            <tr>
+                <td>Phí bảo hiểm đóng thêm dự kiến Năm hợp đồng 1 (4)</td>
+                <td><input type="text" class="form-control" id="16" value="@Model.PayAdd_quy"/></td>
+                <td><input type="text" class="form-control" id="17" value="@Model.PayAdd_nuanam"/></td>
+                <td><input type="text" class="form-control" id="18" value="@Model.PayAdd_nam"/></td>
+            </tr>
+            <tr>
+                <td>Phí bảo hiểm định kì dự kiến = (3) + (4)</td>
+                <td><input type="text" class="form-control"/></td>
+                <td><input type="text" class="form-control"/></td>
+                <td><input type="text" class="form-control"/></td>
+            </tr>
+        <tbody>
+    </table>
+
+    <h4 class="page-header">Thông tin người được bảo hiểm</h4>
+
+    <table id="grid_infor" class="table table-bordered">
+        <thead class="text-black" style="background: #CCCCCC;">
+            <tr>
+                <th>Sản phẩm bảo hiểm</th>
+                <th>Sự kiện bảo hiểm</th>
+                <th>Giá trị chi trả (Đồng)</th>
+                <th>Ghi chú</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3" style="vertical-align:middle">New URL</td>
+                <td>Tử vong</td>
+                <td>
+                    Nếu chọn Gia tăng tiết kiệm: "Giá trị lớn hơn giữa <STBH> đồng và Giá trị tài khoản" Nếu chọn Gia tăng bảo vệ: Trước khi Người được bảo hiểm đạt 70 tuổi: "<STBH> đồng + Giá trị tài khoản" Kể từ khi Người được bảo hiểm đạt 70 tuổi: "Giá trị lớn hơn giữa <STBH> đồng và Giá trị tài khoản"
+                </td>
+                <td>
+                    Nếu chọn Gia tăng bảo vệ: Kể từ khi Người được bảo hiểm đạt 70 tuổi, Hợp đồng sẽ tự động chuyển đối thành Quyền lợi Gia tăng tiết kiệm.
+                </td>
+            </tr>
+            <tr>
+                <td>Bị thương tật toàn bộ vĩnh viện</td>
+                <td>
+                    Nếu chọn Gia tăng tiết kiệm: "Giá trị lớn hơn giữa <STBH> đồng và Giá trị tài khoản" Nếu chọn Gia tăng bảo vệ: "<STBH> đồng + Giá trị tài khoản"
+                </td>
+                <td>
+                    - Nếu Người được bảo hiểm bị Thương tật toàn bộ vĩnh viễn trong thời gian hợp đồng bảo hiểm có hiệu lực và trước khi đạt 66 tuổi.
+                </td>
+            </tr>
+            <tr>
+                <td>Ung thư giai đoạn cuối</td>
+                <td>
+                    Tạm ứng không tính lãi lên đến 50% Giá trị tài khoản, nhưng không vượt quá 500 triệu đồng.
+                </td>
+                <td>
+                    - Trong thời gian tạm ứng, 100% Giá trị tài khoản bao gồm phần tạm ứng vẫn sẽ được tích lũy lãi. - Khoản tạm ứng sẽ được khấu trừ từ Giá trị tài khoản nếu Người được bảo hiểm còn sống sau 12 tháng, hoặc Quyền lợi tử vong/Thương tật toàn bộ vĩnh viễn nếu Người được bảo hiểm tử vong/ bị thương tật toàn bộ vĩnh viễn trong vòng 12 tháng kể từ ngày nhận tạm ứng.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Ghi chú:</p>
+            <p>
+                (*) Thời hạn đóng phí bằng Thời hạn bảo hiểm. Tuy nhiên, Bên mua bảo hiểm có thể đóng phí linh hoạt từ Năm hợp đồng thứ 4, tùy thuộc vào nhu cầu tiết kiệm và bảo vệ của mình. Việc giảm hoặc tạm ngưng đóng phí có thể dẫn đến hợp đồng mất hiệu lực do Giá trị tài khoản không đủ khấu trừ Phí bảo hiểm rủi ro hàng tháng.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input id="btn_save" type="button" value="Lưu" class="btn btn-lg btn-primary btn-block" style="max-width:none;" />
+        </div>
+        <div class="col-md-12">
+            <input id="btn_update" type="button" value="Cập nhật" class="btn btn-lg btn-primary btn-block" style="max-width:none;" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#btn_save').on('click', function () {
+            var customer = {
+                Name: "" + $('#1').val() + "",
+                Dob: "" + $('#2').val() + "",
+                Age: "" + $('#3').val() + "",
+                Job: "" + $('#4').val() + "",
+                ProductID: "" + $('#5').val() + "",
+                PayMoney: "" + $('#6').val() + "",
+                Duration: "" + $('#7').val() + "",
+                PayDuaration: "" + $('#8').val() + "",
+                TaxPerYear: "" + $('#9').val() + "",
+                BasicIns_quy: "" + $('#10').val() + "",
+                BasicIns_nuanam: "" + $('#11').val() + "",
+                BasicIns_nam: "" + $('#12').val() + "",
+                AddItemIns_quy: "" + $('#13').val() + "",
+                AddItemIns_nuanam: "" + $('#14').val() + "",
+                AddItemIns_nam: "" + $('#15').val() + "",
+                PayAdd_quy: "" + $('#16').val() + "",
+                PayAdd_nuanam: "" + $('#17').val() + "",
+                PayAdd_nam: "" + $('#18').val() + "",
+
+            };
+            console.log(customer);            
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: customer,
+                url: '@Url.Action("AddCustomer", "Home")',
+            });
+        });
+
+        $('#btn_update').on('click', function () {
+            var customer = {
+                Name: "" + $('#1').val() + "",
+                Dob: "" + $('#2').val() + "",
+                Age: "" + $('#3').val() + "",
+                Job: "" + $('#4').val() + "",
+                ProductID: "" + $('#5').val() + "",
+                PayMoney: "" + $('#6').val() + "",
+                Duration: "" + $('#7').val() + "",
+                PayDuaration: "" + $('#8').val() + "",
+                TaxPerYear: "" + $('#9').val() + "",
+                BasicIns_quy: "" + $('#10').val() + "",
+                BasicIns_nuanam: "" + $('#11').val() + "",
+                BasicIns_nam: "" + $('#12').val() + "",
+                AddItemIns_quy: "" + $('#13').val() + "",
+                AddItemIns_nuanam: "" + $('#14').val() + "",
+                AddItemIns_nam: "" + $('#15').val() + "",
+                PayAdd_quy: "" + $('#16').val() + "",
+                PayAdd_nuanam: "" + $('#17').val() + "",
+                PayAdd_nam: "" + $('#18').val() + "",
+
+            };
+            console.log(customer);            
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                data: customer,
+                url: '@Url.Action("UpdateCustomer", "Home")',
+            });
+        });
+    });
+
+</script>
+<style type="text/css">
+    input {
+        margin: inherit;
+    }
+
+    h5 {
+        margin: 15px 0 23px 0;
+    }
+
+    thead tr:first-child th {
+        text-align: center;
+        width: 150px;
+    }
+</style>
