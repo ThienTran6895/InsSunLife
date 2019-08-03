@@ -456,7 +456,6 @@
     <Content Include="Scripts\Plugins\datatables\extensions\TableTools\images\psd\printer.psd" />
     <Content Include="Scripts\Plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Views\Home\InsuranceInfo.cshtml" />
-    <Content Include="Views\Home\GetCustomerByName.cshtml" />
     <Content Include="Views\Home\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@
             Tuổi:
         </div>
         <div class="col-md-1">
-            <input type="text" class="form-control"/>
+            <input type="text" class="form-control" value="@Model.Age"/>
         </div>
         <div class="col-md-1">
             Giới tính:
@@ -51,31 +51,31 @@
         <tbody>
             <tr>
                 <td>
-                    <input type="text" class="form-control" id="1" value="@Model.Name"/>
+                    <input type="text" class="form-control" id="txt_Name" value="@Model.Name"/>
                 </td>
                 <td>
-                    <input type="date" class="form-control" id="2" value="@Model.Dob"/>
+                    <input type="date" class="form-control" id="txt_Dob" value="@Model.Dob"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="3" value="@Model.Age"/>
+                    <input type="text" class="form-control" id="txt_Age" value="@Model.Age"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="4" value="@Model.Job"/>
+                    <input type="text" class="form-control" id="txt_Job" value="@Model.Job"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="5" value="@Model.ProductID"/>
+                    <input type="text" class="form-control" id="txt_ProfuctID" value="@Model.ProductID"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="6" value="@Model.PayMoney"/>
+                    <input type="text" class="form-control" id="txt_PayMoney" value="@Model.PayMoney"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="7" value="@Model.Duration"/>
+                    <input type="text" class="form-control" id="txt_Duration" value="@Model.Duration"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="8" value="@Model.PayDuration"/>
+                    <input type="text" class="form-control" id="txt_PayDuration" value="@Model.PayDuration"/>
                 </td>
                 <td>
-                    <input type="text" class="form-control" id="9" value="@Model.TaxPerYear"/>
+                    <input type="text" class="form-control" id="txt_TaxPerYear" value="@Model.TaxPerYear"/>
                 </td>
             </tr>
         </tbody>
@@ -93,15 +93,15 @@
         <tbody>
             <tr>
                 <td>Phí bảo hiểm cơ bản(1)</td>
-                <td><input type="text" class="form-control" id="10" value="@Model.BasicIns_quy"/></td>
-                <td><input type="text" class="form-control" id="11"value="@Model.BasicIns_nuanam"/></td>
-                <td><input type="text" class="form-control" id="12"value="@Model.BasicIns_nam"/></td>
+                <td><input type="text" class="form-control" id="txt_BasicIns_quy" value="@Model.BasicIns_quy"/></td>
+                <td><input type="text" class="form-control" id="txt_BasicIns_nuanam"value="@Model.BasicIns_nuanam"/></td>
+                <td><input type="text" class="form-control" id="txt_BasicIns_nam"value="@Model.BasicIns_nam"/></td>
             </tr>
             <tr>
                 <td>Phí bảo hiểm của (các) sản phẩm bổ sung (2)</td>
-                <td><input type="text" class="form-control" id="13"value="@Model.AddItemIns_quy"/></td>
-                <td><input type="text" class="form-control" id="14"value="@Model.AddItemIns_nuanam"/></td>
-                <td><input type="text" class="form-control" id="15" value="@Model.AddItemIns_nam"/></td>
+                <td><input type="text" class="form-control" id="txt_AddItemIns_quy"value="@Model.AddItemIns_quy"/></td>
+                <td><input type="text" class="form-control" id="txt_AddItemIns_nuanam"value="@Model.AddItemIns_nuanam"/></td>
+                <td><input type="text" class="form-control" id="txt_AddItemIns_nam" value="@Model.AddItemIns_nam"/></td>
             </tr>
             <tr>
                 <td>Phí bảo hiểm định kì (3) = (1) + (2)</td>
@@ -111,9 +111,9 @@
             </tr>
             <tr>
                 <td>Phí bảo hiểm đóng thêm dự kiến Năm hợp đồng 1 (4)</td>
-                <td><input type="text" class="form-control" id="16" value="@Model.PayAdd_quy"/></td>
-                <td><input type="text" class="form-control" id="17" value="@Model.PayAdd_nuanam"/></td>
-                <td><input type="text" class="form-control" id="18" value="@Model.PayAdd_nam"/></td>
+                <td><input type="text" class="form-control" id="txt_PayAdd_quy" value="@Model.PayAdd_quy"/></td>
+                <td><input type="text" class="form-control" id="txt_PayAdd_nuanam" value="@Model.PayAdd_nuanam"/></td>
+                <td><input type="text" class="form-control" id="txt_PayAdd_nam" value="@Model.PayAdd_nam"/></td>
             </tr>
             <tr>
                 <td>Phí bảo hiểm định kì dự kiến = (3) + (4)</td>
@@ -189,24 +189,24 @@
 
         $('#btn_save').on('click', function () {
             var customer = {
-                Name: "" + $('#1').val() + "",
-                Dob: "" + $('#2').val() + "",
-                Age: "" + $('#3').val() + "",
-                Job: "" + $('#4').val() + "",
-                ProductID: "" + $('#5').val() + "",
-                PayMoney: "" + $('#6').val() + "",
-                Duration: "" + $('#7').val() + "",
-                PayDuaration: "" + $('#8').val() + "",
-                TaxPerYear: "" + $('#9').val() + "",
-                BasicIns_quy: "" + $('#10').val() + "",
-                BasicIns_nuanam: "" + $('#11').val() + "",
-                BasicIns_nam: "" + $('#12').val() + "",
-                AddItemIns_quy: "" + $('#13').val() + "",
-                AddItemIns_nuanam: "" + $('#14').val() + "",
-                AddItemIns_nam: "" + $('#15').val() + "",
-                PayAdd_quy: "" + $('#16').val() + "",
-                PayAdd_nuanam: "" + $('#17').val() + "",
-                PayAdd_nam: "" + $('#18').val() + "",
+                Name: "" + $('#txt_Name').val() + "",
+                Dob: "" + $('#txt_Dob').val() + "",
+                Age: "" + $('#txt_Age').val() + "",
+                Job: "" + $('#txt_Job').val() + "",
+                ProductID: "" + $('#txt_ProfuctID').val() + "",
+                PayMoney: "" + $('#txt_PayMoney').val() + "",
+                Duration: "" + $('#txt_Duration').val() + "",
+                PayDuaration: "" + $('#txt_PayDuration').val() + "",
+                TaxPerYear: "" + $('#txt_TaxPerYear').val() + "",
+                BasicIns_quy: "" + $('#txt_BasicIns_quy').val() + "",
+                BasicIns_nuanam: "" + $('#txt_BasicIns_nuanam').val() + "",
+                BasicIns_nam: "" + $('#txt_BasicIns_nam').val() + "",
+                AddItemIns_quy: "" + $('#txt_AddItemIns_quy').val() + "",
+                AddItemIns_nuanam: "" + $('#txt_AddItemIns_nuanam').val() + "",
+                AddItemIns_nam: "" + $('#txt_AddItemIns_nam').val() + "",
+                PayAdd_quy: "" + $('#txt_PayAdd_quy').val() + "",
+                PayAdd_nuanam: "" + $('#txt_PayAdd_nuanam').val() + "",
+                PayAdd_nam: "" + $('#txt_PayAdd_nam').val() + "",
 
             };
             console.log(customer);            

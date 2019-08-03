@@ -1,14 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-@model IEnumerable<InsSunLife.Models.Customer>
+@*@model IEnumerable<InsSunLife.Models.Customer>*@
 <div class="panel panel-default header-nobg" style="margin-top:20px;">
     <div class="panel-heading">
         <h4>Danh sách hợp đồng</h4>
     </div>
     <div class="panel-body">
-        <input type="text" id="Search" />
-        <a class="btn btn-primary" id="search">Tìm kiếm</a>
+        <input type="text" id="Search" />       
+        <a class="btn btn-primary" id="search" @*href="/home/Index?Name=@Model"*@>Tìm kiếm</a>
         <a class="btn btn-primary" href="/home/InsuranceInfo">Thêm</a>
         <a class="btn btn-primary" id="upload" style="float: right;" href="/home/Upload">Upload</a>
     </div>
@@ -24,13 +24,12 @@
             </tr>
         </thead>
         <tbody>
-
             @{
                 foreach (var item in Model)
                 {
                     <tr>
                         <td></td>
-                        <td>
+                        <td>                            
                             @item.Name
                         </td>
                         <td>
@@ -51,13 +50,14 @@
             $("#search").on("click", function () {
                 var name = {
                     Name: $("#Search").val()
-                }                  
+                }
                 $.ajax({
                 type: "POST",
                     dataType: "json",
                     data: name,
-                url: '@Url.Action("GetCustomerByName", "Home")',
-            });
+                    url: '@Url.Action("Index", "Home")',                   
+                });
+                window.location.href = '@Url.Action("Index", "Home")?Name=' + name.Name;
             });
         });
 

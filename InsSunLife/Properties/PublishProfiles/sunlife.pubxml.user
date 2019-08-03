@@ -25,10 +25,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/30/2019 17:21:38</publishTime>
     </File>
     <File Include="bin/InsSunLife.dll">
-      <publishTime>08/02/2019 17:10:42</publishTime>
+      <publishTime>08/03/2019 11:12:46</publishTime>
     </File>
     <File Include="bin/InsSunLife.pdb">
-      <publishTime>08/02/2019 17:10:42</publishTime>
+      <publishTime>08/03/2019 11:12:46</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>06/27/2017 12:59:34</publishTime>
@@ -1033,10 +1033,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2019 16:58:54</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>08/02/2019 16:58:53</publishTime>
+      <publishTime>08/03/2019 11:03:00</publishTime>
     </File>
     <File Include="Views/Home/InsuranceInfo.cshtml">
-      <publishTime>08/02/2019 15:19:18</publishTime>
+      <publishTime>08/03/2019 11:11:36</publishTime>
     </File>
     <File Include="Views/Home/Upload.cshtml">
       <publishTime>08/02/2019 17:09:40</publishTime>

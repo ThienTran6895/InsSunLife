@@ -28,19 +28,24 @@ namespace InsSunLife.Controllers
             var result = customerRepository.UpdateCustomer(customer);
             return RedirectToAction("Index");
         }
-
-        [HttpPost]
-        public ActionResult GetCustomerByName(string Name="")
-        {
-
-            var result = customerRepository.GetByName(Name);
-            return View(result);         
-        }
+        
 
         public ActionResult Index(Customer customer)
-        {            
-            var data = customerRepository.GetAllCustomer(Name: customer.Name, CreateDate: customer.CreateDate);            
-            return View(data);           
+
+        {
+            if (!string.IsNullOrEmpty(customer.Name))
+            {
+                var data = customerRepository.GetByName(Name: customer.Name);
+                return View(data);
+
+            }
+            else
+            {
+                var data = customerRepository.GetAllCustomer(Name: customer.Name, CreateDate: customer.CreateDate);
+                return View(data);
+
+            }
+            //return View(data);           
         }
 
         public ActionResult InsuranceInfo(string id="")
